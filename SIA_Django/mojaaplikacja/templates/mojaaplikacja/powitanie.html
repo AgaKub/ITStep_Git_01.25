@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Witaj!</title>
+</head>
+<body>
+      <h1>Witaj {{imie|default:"drogi uzytkowniku"|upper}}!</h1>
+      <p>{{wiadomosc}}</p>
+
+    <form method="post" action="/hello/">
+      {% csrf_token %}
+      <label for="imie">Twoje imie:</label>
+      <input type="text" id="imie" name="imie">
+      <button type="submit">Wyslij</button>
+    </form>
+
+</body>
+
+</html>

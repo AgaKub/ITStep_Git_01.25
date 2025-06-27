@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Kontakt</title>
+</head>
+<body>
+    <h1>Skontaktuj sie z nami</h1>
+    <p> Możesz sie z nami skontaktowac pod adresem: kontakt@example.com</p>
+    <h2>Formularz kontaktowy</h2>
+        {%if form.errors%}
+
+        <ul class="errorlist">
+            {%for field errors in form.errors.items%}
+                {%for errors%}
+                  <li> <strong>{{field|capfirst}}</strong>: {{errors}}</li>
+                {%endfor%}
+            {{form.non_field_errors}}
+        </ul>
+        <p style="color: red;">Proszę poprawic ponizsze bledy:</p>
+        {{form.errors}}
+    {%endif%}
+    {%for field in form%}
+        <div class="form-row{% if field.errors%} error{%endif}">
+            {{field.label_tag}} {{field}}
+            {%if field.errors%}
+                <ul> class="errorlist">
+                    {% for error in field.errors%}
+                        <li>{{error}}</li>
+                    {%endfor%}
+
+                </ul>
+            {%endif%}
+        </div>
+    {%endfor%}
+    <form method="POST">
+        {% csrf_token %}
+        {{form.as_p}}
+        <button type="submit">Wyslij</button>
+
+    </form>
+</body>
+</html>

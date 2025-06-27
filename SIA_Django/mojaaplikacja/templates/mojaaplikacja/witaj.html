@@ -1,0 +1,23 @@
+
+
+<!DOCTYPE html>
+{%load static %}
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Witaj</title>
+</head>
+<body>
+  <img src="{% static 'images/ACDC_snapshot.png' %}" alt="ACDC zespol muzyczny">
+
+  <h1>Witaj {{imie|default:"Drogi uzytkowniku"|upper}}</h1>
+  {% if czy_jest_rano %}
+    <p>Dzien Dobry</p>
+  {% else %}
+    <p>{{ wiadomosc }}</p>
+  {% endif %}
+  <p>Aktualna data: {{ teraz|date:"d.m.Y"}}</p>
+  <p>Aktudalny czas: {{ teraz|date:"H:i:s"}}</p>
+  <a href="{% url 'info' %}"> Zobacz wiecej informacji</a>
+</body>
+</html>

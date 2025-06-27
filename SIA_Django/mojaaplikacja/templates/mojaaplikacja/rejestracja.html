@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <title>Rejestracja</title>
+
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+</head>
+<body>
+
+    <h2>Rejestracja</h2>
+
+    <form method="post">
+        {% csrf_token %}
+
+        <!--  Błędy ogólne formularza (z metody clean) -->
+        {% if form.non_field_errors %}
+            <div class="error">
+                {{ form.non_field_errors }}
+            </div>
+        {% endif %}
+
+        <!--  Pole: nazwa użytkownika -->
+        <div>
+            {{ form.nazwa_uzytkownika.label_tag }}<br>
+            {{ form.nazwa_uzytkownika }}
+            <div class="error">{{ form.nazwa_uzytkownika.errors }}</div>
+        </div>
+
+        <!--  Pole: email -->
+        <div>
+            {{ form.email.label_tag }}<br>
+            {{ form.email }}
+            <div class="error">{{ form.email.errors }}</div>
+        </div>
+
+        <!--  Pole: hasło -->
+        <div>
+            {{ form.haslo.label_tag }}<br>
+            {{ form.haslo }}
+            <div class="blad">{{ form.haslo.errors }}</div>
+        </div>
+
+        <!--  Pole: potwierdź hasło -->
+        <div>
+            {{ form.potwierdz_haslo.label_tag }}<br>
+            {{ form.potwierdz_haslo }}
+            <div class="blad">{{ form.potwierdz_haslo.errors }}</div>
+        </div>
+
+        <!-- ✅ Checkbox akceptacji regulaminu -->
+        <div>
+            {{ form.akceptacja_regulaminu }} {{ form.akceptacja_regulaminu.label_tag }}
+            <div class="blad">{{ form.akceptacja_regulaminu.errors }}</div>
+        </div>
+
+        <button type="submit">Zarejestruj się</button>
+    </form>
+
+</body>
+</html>

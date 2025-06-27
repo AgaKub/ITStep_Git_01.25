@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{{strona.tytul}}</title>
+</head>
+<body>
+    <h1>{{strona.tytul|upper}}</h1>
+    <p>{{ strona.opis|truncatechars:50}}</p>
+    <p>Ta strona ma {{strona.cechy|length}} wazne cechy:</p>
+    <ul>
+        <li>{{strona.cechy|join:","}}</li>
+    </ul>
+
+    {% with autor_imie=strona.autor.imie %}
+        <p> Autorem strony jest: {{autor_imie}} {{strona.autor.nazwisko}}</p>
+    {% endwith %}
+    <p> Wersja: {{wersja}}</p>
+</body>
+</html>

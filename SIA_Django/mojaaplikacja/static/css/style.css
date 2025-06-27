@@ -1,0 +1,39 @@
+# selector {
+wlasciwosci: wartosci;
+}
+
+
+body {
+    font-family:sens-serif;
+    margin:0;
+    padding:0;
+    backgroubd-colur:f4f4f4;
+    color:blue,
+}
+
+
+h1 {
+color: orange;
+font-weight: bold
+}
+
+.errorlist {
+    color: red;
+    margin-bottom: 1em;
+    padding-left: 1.5em;
+    }
+
+.errorlist li{
+    list-style-type:disc;
+    }
+
+.form-row.error label{
+    font-weight:bold;
+    color:darkred;
+    }
+
+.form-row.error input,
+.form-row.error textarea,
+.form-row.error select{
+    border: 1 px solid red;
+}

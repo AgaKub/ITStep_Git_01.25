@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Lista produktow</title>
+</head>
+<body>
+    <header>
+        <h1>Lista produktow</h1>
+    </header>
+
+
+
+        <ul>
+            {% for produkt in produkty %}
+                <li>{{produkt}}</li>
+            {% endfor %}
+        </ul>
+        <p> Liczba produktow na liscie:{{ produkty|length }}</p>
+</body>
+
+</html>
